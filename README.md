@@ -44,5 +44,5 @@ El bloque de cambios de velocidad por otro lado, maneja los cambios de la caja d
 
 # Diagrama
 
-https://github.com/ignaciomartinez00/Trabajo-Practico-Maquina-de-estado-vehiculo-autonomo/blob/master/diagrama.png
+![github-large](https://github.com/ignaciomartinez00/Trabajo-Practico-Maquina-de-estado-vehiculo-autonomo/blob/master/diagrama.png)
 
