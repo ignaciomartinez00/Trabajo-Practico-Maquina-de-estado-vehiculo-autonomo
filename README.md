@@ -40,3 +40,6 @@ El bloque de cambios de velocidad por otro lado, maneja los cambios de la caja d
 
 •	El sistema central: se encarga de apuntar o llamar a todas las partes del sistema antes mencionadas, unificando así a todo el sistema, para que apunte a cada elemento se debe mencionar por su nombre ejemplo, “GPS” y el sistema recoge los datos obtenidos por el GPS y para volver al sistema central, se debe apuntar a él mencionando “alerta”.
 (BORRADOR)
+
+
+#Diagrama
