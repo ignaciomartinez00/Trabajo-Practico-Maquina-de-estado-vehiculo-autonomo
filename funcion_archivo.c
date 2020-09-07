@@ -4,7 +4,7 @@ char *getKey(char *key)
 {
 char i = 0;
 
-while(*(key+i) != ' '){//espacio entre variable y su valor dentro del archivo
+while(*(key+i) != ' '){
 	i++;
 }
 *(key+i) = 0;
@@ -29,8 +29,8 @@ if( (conf = fopen("config.conf","rb")) == NULL ){
 fgets(cadena, 40, conf);
 do{
 	key = cadena;
-	if( (*key) != '#' && strlen(key) >= 0){		//caracter que indica comentario
-		val = getKey(key); 						//modifica a key para que solo tenga la clave, retorna.
+	if( (*key) != '#' && strlen(key) >= 0){
+		val = getKey(key);
 		//printf("%s: %s\n", key, val);			//imprime la clave y el valor levantdo del archvio
 		for( i = 0; i < 23; i++){
 			if( !strcmp( key , variables[i] ) ){
@@ -91,11 +91,6 @@ do{
 printf("RPM : %d\n",RPM);
 printf("RPMmax: %d\n",RPMmax);
 printf("RPMmin: %d\n\n",RPMmin);
-
-
-
-
-
 printf("velocidad actual: %d\n",velocidad_actual);
 printf("velocidad esperada: %d\n\n",velocidad_esperada);
 printf("cambio: %d\n",cambio);
