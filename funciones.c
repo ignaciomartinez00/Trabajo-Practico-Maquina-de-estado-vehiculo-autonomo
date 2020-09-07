@@ -1,13 +1,11 @@
-//la funcion lectura va a interpretar lo del teclado y va a devolver el retorno indicado
 
 #include "mylib.h"
 
-estado_p f_lectura (void)  // usar para aquellas funciones que involucran palabras en ves de numeros, son mas de una opcion a la ves
+estado_p f_lectura (void)
 {
     int i;
     char op[30];
-    char opciones[14][100]={"sistema_central","camara","sistema_central_de_velocidades","motor","combustible","parabrisas","bloque_desicion","radar","bloqueo","GPS","luces","volante","busca_fallas","giroscopio"};//mismo orden que struct
-    printf("escriba la tecnologia a controlar:\t");
+    char opciones[14][100]={"sistema_central","camara","sistema_central_de_velocidades","motor","combustible","parabrisas","bloque_desicion","radar","bloqueo","GPS","luces","volante","busca_fallas","giroscopio"};
     fflush(stdin);
     gets(op);
     for(i=0;i<14;i++)
@@ -61,7 +59,7 @@ estado_p f_sist_central_velocidades(void)
    return sistema_central;
 }
 
-/////////////////////////////////////
+
 estado_p f_bloque_desicion(void)
 {
    printf("bloque de desicion:\n");
@@ -118,7 +116,6 @@ estado_p f_semaforo(void)
 }
 
 
-//////////////// funciones sin return conectadas a otras funciones
 estado_p f_motor(void)
 {
    int temperatura;
@@ -145,10 +142,7 @@ estado_p f_parabrisas(void)
    printf("parabrisas\n");
    return sistema_central;
 }
-///////////////////////////////////////////////////////////
 
-
-//// funciones que no son apuntadas por el sistema central y son binomicas
 estado_p f_estable(void)
 {
     char op[30];
@@ -160,7 +154,7 @@ estado_p f_estable(void)
        fflush(stdin);
        gets(op);
        temperatura=atoi(op);
-       if(temperatura>0)//cuando convierto atoi una palabra, atoi=0
+       if(temperatura>0)
        {
            if(temperatura<1000)
            {
@@ -186,7 +180,7 @@ estado_p f_inestable(void)
        fflush(stdin);
        gets(op);
        temperatura=atoi(op);
-       if(temperatura>0)//cuando convierto atoi una palabra, atoi=0
+       if(temperatura>0)
        {
            if(temperatura<1000)
            {
@@ -224,7 +218,4 @@ estado_p f_desactivado(void)
    printf("desactivado\n");
    return sistema_central;
 }
-/////////////////////////////////
-//complementarias
-
 
