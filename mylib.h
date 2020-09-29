@@ -8,23 +8,23 @@
 #define g 9.8
 #define pi 3.14159265359
 
-//prototipo de ARCHIVO
 
-typedef enum //en el mismo orden que las f_
+
+typedef enum
 {
     sistema_central,
-    camara,//funciones inicialiazadoras T2
-    sist_central_velocidades,//funcion inicializadora tipo 3
-    motor,//funciones inicialiazadoras
-    combustible,//funciones inicialiazadoras
-    parabrisas,//funciones inicialiazadoras
+    camara,
+    sist_central_velocidades,
+    motor,
+    combustible,
+    parabrisas,
     bloque_desicion,
     radar,
-    bloqueo,//lo rote con GPS
+    bloqueo,
     GPS,
     volante,
     busca_fallas,
-    giroscopio,// hasta aca apuntan son apuntados desde el sistema central
+    giroscopio,
     semaforo,
     estable,
     inestable,
@@ -33,7 +33,7 @@ typedef enum //en el mismo orden que las f_
     activado,
     desactivado,
 
-}estado_p;//es la posicion de los estados
+}estado_p;
 
     typedef struct
     {
@@ -93,8 +93,6 @@ typedef enum
 
 
 
-
-//funciones de cada estado
 estado_p f_sistema_central(void);
 estado_p f_camara (void);
 estado_p f_sist_central_velocidades(parametros_t);
@@ -118,12 +116,12 @@ estado_p f_activado(parametros_t);
 estado_p f_desactivado(parametros_t);
 
 parametros_t f_inicio(void);
-//temperatura_t f_inicio(void);
+
 
 char *getkey(char *key);
 
 parametros_t archivo(char *);
-//temperatura_t parseConfig(char *);
+
 
 estado_p (*fms[21])(parametros_t);
 estado_p f_lectura (void);
@@ -149,9 +147,8 @@ struct guardado
 
 
 void alta(void);
-void listar(FILE *,char * n);
-void generar(void);
-//clase 9
+
+
 void consulta(void);
 void modifica(void);
 void inicio(void);
