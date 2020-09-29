@@ -47,7 +47,7 @@ estado_p f_camara (void)
        guardar_bfs(1,6);
        printf("se debe reducir la velocidad a 20Km/h por el reductor\n");
        system("pause");
-       return sist_central_velocidades;///FALTA la reduccion de velocidad con el archivo
+       return sist_central_velocidades;
    }
    if((strcmp(op,"cruce"))==0||(strcmp(op,"desconocido"))==0)
    {
@@ -107,12 +107,7 @@ while(velocidad_actual!=velocidad_esperada)
     }
             tablero(velocidad_actual,RPM,velocimetro(velocidad_actual,velocidad_esperada),cambio);///IMPRESION
 
-    /*
-    if(velocidad_actual==0)
-    {
-        RPM=110;
-    }
-    */
+
     guardar(velocidad_esperada,1);
     guardar(velocidad_actual,2);
     guardar(cambio,3);
@@ -156,7 +151,7 @@ guardar_bfs(paso,0);
     system("pause");
     return sistema_central;
     }
-        //inicializar todas las variables
+
         estado=estacionar[paso];
         guardar_bfs(paso,0);
         paso++;
@@ -206,7 +201,7 @@ estado_p f_radar(void)
     return estado;
 }
 
-estado_p f_bloqueo(parametros_t config) ///acomodar apagado velocidad=0
+estado_p f_bloqueo(parametros_t config)
 {
    printf("bloqueo\n");
    int contrasena=0;
@@ -305,7 +300,7 @@ estado_p f_GPS(parametros_t config)
             gets(op);
     }
     guardar(velocidad,1);
-    return sist_central_velocidades;//sistema_central
+    return sist_central_velocidades;
 }
 
 estado_p f_volante(parametros_t config)
@@ -447,7 +442,7 @@ estado_p f_giroscopio(parametros_t config)
 {
     tablero(recu(2),recu(4),0,recu(3));
    printf("giroscopio\n");
-   int angulo,cambio,cambio_actual,fuerzaMotor,masa=784,i,menor=7,fuerzaMotorMax;///agregar masa a los datos del registro
+   int angulo,cambio,cambio_actual,fuerzaMotor,masa=784,i,menor=7,fuerzaMotorMax;
    float fuerzaG;
    int valor;
    printf("%cngulo respecto al piso:",181);
@@ -500,7 +495,7 @@ estado_p f_giroscopio(parametros_t config)
    return sist_central_velocidades;
 }
 
-estado_p f_semaforo(void) //ver si agrego otro if para alerta
+estado_p f_semaforo(void)
 {
     tablero(recu(2),recu(4),0,recu(3));
    char op[40];
@@ -527,8 +522,8 @@ estado_p f_semaforo(void) //ver si agrego otro if para alerta
        return semaforo;
    }
 }
-//////////////// funciones sin return conectadas a otras funciones
-estado_p f_motor(parametros_t config) //
+
+estado_p f_motor(parametros_t config)
 {
     tablero(recu(2),recu(4),0,recu(3));
    int temperatura;
@@ -588,7 +583,6 @@ estado_p f_parabrisas(parametros_t config)
    }
    return sistema_central;
 }
-//////////////////////////////////////// funciones que no son apuntadas por el sistema central y son binomicas
 
 estado_p f_estable(void)
 {
@@ -602,7 +596,7 @@ estado_p f_estable(void)
        fflush(stdin);
        gets(op);
        temperatura=atoi(op);
-       if(temperatura>0)//cuando convierto atoi una palabra, atoi=0
+       if(temperatura>0)
        {
            if(temperatura<1000)
            {
@@ -629,7 +623,7 @@ estado_p f_inestable(void)
        fflush(stdin);
        gets(op);
        temperatura=atoi(op);
-       if(temperatura>0)//cuando convierto atoi una palabra, atoi=0
+       if(temperatura>0)
        {
            if(temperatura<1000)
            {
