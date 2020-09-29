@@ -25,7 +25,7 @@ void alta_bfs(void)  ///bf=busca_fallas
     system("cls");
     fflush(stdin);
     fread(&bf,sizeof(struct guardado_bfs),1,fp);
-    while(!feof(fp))  //preguntamos si no es fin de archivo (clase 8)
+    while(!feof(fp))
     {
         if(bf.posicion==posicion)
         {
@@ -33,11 +33,11 @@ void alta_bfs(void)  ///bf=busca_fallas
             return;
         }
         fread(&bf,sizeof(struct guardado_bfs),1,fp);
-    }//estoy en el final del archivo
+    }
     bf.posicion=posicion;
     bf.variable=valor[posicion];
     fflush(stdin);
-    fwrite(&bf,sizeof(struct guardado_bfs),1,fp);//grabo todo lo anterior, solo lo puedo grabar porque tengo el + en rb+. clase 8
+    fwrite(&bf,sizeof(struct guardado_bfs),1,fp);
     fclose(fp);
     }
 }
@@ -47,27 +47,27 @@ int recu_bfs(int posicion_dentro_del_archivo)
     struct guardado_bfs bf;
     FILE *fp;
     int valor;
-    fp=fopen("parametros_bfs.txt","rb+"); //ponerle if y todo eso de validacion
+    fp=fopen("parametros_bfs.txt","rb+");
     fread(&bf,sizeof(struct guardado_bfs),1,fp);
-    while(!feof(fp))  //preguntamos si no es fin de archivo (clase 8)
+    while(!feof(fp))
     {
         if(bf.posicion==posicion_dentro_del_archivo)
         {
                 valor=bf.variable;
         }
         fread(&bf,sizeof(struct guardado_bfs),1,fp);
-    }//estoy en el final del archivo
+    }
     fclose(fp);
     return valor;
 }
 
-int guardar_bfs(int valor,int posicion)  //pasar a void
+int guardar_bfs(int valor,int posicion)
 {
     struct guardado_bfs bf;
     FILE *fp;
-    fp=fopen("parametros_bfs.txt","rb+"); //ponerle if y todo eso de validacion
+    fp=fopen("parametros_bfs.txt","rb+");
     fread(&bf,sizeof(struct guardado_bfs),1,fp);
-    while(!feof(fp))  //preguntamos si no es fin de archivo (clase 8)
+    while(!feof(fp))
     {
         if(bf.posicion==posicion)
         {
@@ -81,6 +81,6 @@ int guardar_bfs(int valor,int posicion)  //pasar a void
     fwrite(&bf,(1L)*sizeof(struct guardado_bfs),1,fp);
 
     fclose(fp);
-    return valor;  ///VER si es void
+    return valor;
 }
 
